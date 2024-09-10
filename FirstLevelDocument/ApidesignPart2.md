@@ -74,6 +74,7 @@
             "quantity":15
         }
     }
+    ```
 
 4. GET /api/ims/products-bycategory?category-id=101
 
@@ -130,7 +131,7 @@
         "id":101,
         "name":"grocery",
     }
-
+    
     ```
 7. UPDATE /api/ims/update/{product_id}
  
@@ -143,7 +144,6 @@
             "price" : 105.00,
             "quantity" : 5
         }
- 
     ```
  
     - response-status : 200
@@ -151,7 +151,7 @@
  
      ```json
         {
-        "message" : "Product updated successfully"
+            "message" : "Product updated successfully"
         }
     ```
  
@@ -161,7 +161,7 @@
  
     ```json
         {
-             "name" : "Beverages"
+            "name" : "Beverages"
         }
  
     ```
@@ -171,7 +171,7 @@
  
      ```json
         {
-        "message":"Category updated successfully"
+            "message":"Category updated successfully"
         }
     ```
 
