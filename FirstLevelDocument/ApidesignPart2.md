@@ -201,7 +201,7 @@
     }
     ```
 
-11. UPDATE /api/ims/sold?product-id=2 && quantity=5
+11. UPDATE /api/ims/sold?product-id=2 & quantity=5
 
     - query-param : product-id
     - query-param : quantity
@@ -216,7 +216,7 @@
 
     ```
 
-12. UPDATE /api/ims/re-stock?product-id=2 && quantity=10
+12. UPDATE /api/ims/re-stock?product-id=2 & quantity=10
 
     - query-param : product-id
     - query-param : quantity
