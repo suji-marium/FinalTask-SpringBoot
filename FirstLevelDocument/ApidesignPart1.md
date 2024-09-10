@@ -15,7 +15,8 @@
     - response-status : 200
     - response : employee details as JSON
     ```json
-    {
+    
+    [
         {
             "id" : 1,
             "name"  : "Mathew John",
@@ -30,9 +31,9 @@
             "managerId" : 1,
             "stream" : "Sales",
             "accountName" : "Smart Ops"
-        },
-
-    }
+        }
+    ]
+    
     ```
 
 2. GET /api/employees/allstreams

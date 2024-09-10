@@ -51,7 +51,7 @@
     - response : product details as JSON
 
     ```json
-    {
+    [
         {
             "id":1,
             "name":"rice",
@@ -73,7 +73,8 @@
             "price":80,
             "quantity":15
         }
-    }
+    ]
+    
     ```
 
 4. GET /api/ims/products-bycategory?category-id=101
@@ -84,7 +85,7 @@
     - response : product details as JSON
 
     ```json
-    {
+    [
         {
             "id":1,
             "name":"rice",
@@ -99,7 +100,8 @@
             "price":65.00,
             "quantity":12
         }
-    }
+    ]
+    
     ```
 
 5. GET /api/ims/product?product-id=1
@@ -131,7 +133,7 @@
         "id":101,
         "name":"grocery",
     }
-    
+
     ```
 7. UPDATE /api/ims/update/{product_id}
  
