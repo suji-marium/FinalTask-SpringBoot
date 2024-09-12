@@ -18,19 +18,22 @@
     
     [
         {
-            "id" : 1,
             "name"  : "Mathew John",
-            "managerId" : 0,
+            "id" : 1,
             "stream" : "Sales",
-            "accountName" : "Smart Ops"
+            "designation": "Manager",
+            "accountName" : "Smart Ops",
+            "managerId": 0
         },
 
         {
-            "id" : 2,
+           
             "name"  : "Manu Mohan",
-            "managerId" : 1,
+            "id" : 2,
             "stream" : "Sales",
-            "accountName" : "Smart Ops"
+            "designation": "Associate",
+            "accountName" : "Smart Ops",
+            "managerId" : 1, 
         }
     ]
     
