@@ -3,7 +3,7 @@
 ## Database Diagram
 
 <center>
-<img src = "databasediagram_part1.png" alt ="employee-entity-design" style="width:300px">
+<img src = "databasediagram_part1.png" alt ="employee-entity-design" style="width:450px">
 </center>
 
 ## API Methods

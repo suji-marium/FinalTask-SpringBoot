@@ -12,7 +12,7 @@
     - request-body: category details as JSON
     ```json
         {
-            "id":101,
+            "category_id":101,
             "name":"grocery",
         }
     ```
@@ -29,7 +29,7 @@
     - request-body: product details as JSON
     ```json
         {
-            "id":1,
+            "product_id":1,
             "name":"rice",
             "category_id":101,
             "price":55.00,
@@ -45,7 +45,8 @@
     ```
 
 3. GET /api/ims/products
-
+    - query-param : category-id
+    - query-param : product-id
     - query-param-required : false
     - response-status : 200
     - response : product details as JSON
@@ -77,50 +78,7 @@
     
     ```
 
-4. GET /api/ims/products-bycategory?category-id=101
-
-    - query-param : category-id
-    - query-param-required : true
-    - response-status : 200
-    - response : product details as JSON
-
-    ```json
-    [
-        {
-            "id":1,
-            "name":"rice",
-            "category_id":101,
-            "price":55.00,
-            "quantity":10
-        },
-        {
-            "id":2,
-            "name":"wheat",
-            "category_id":101,
-            "price":65.00,
-            "quantity":12
-        }
-    ]
-    
-    ```
-
-5. GET /api/ims/product?product-id=1
-
-    - query-param : product-id
-    - query-param-required : true
-    - response-status : 200
-    - response : product details as JSON
-    
-    ```json
-    {
-       "id":1,
-        "name":"rice",
-        "category_id":101,
-        "price":55.00,
-        "quantity":10
-    }
-    ```
-6. GET /api/ims/category?category-id=101
+4. GET /api/ims/category?category-id=101
 
     - query-param : category-id
     - query-param-required : true
@@ -135,7 +93,7 @@
     }
 
     ```
-7. UPDATE /api/ims/update/{product_id}
+5. UPDATE /api/ims/update/{product_id}
  
     - request-body : Updated Product details as json
  
@@ -157,7 +115,7 @@
         }
     ```
  
-8. UPDATE /api/ims/update/{category_id}
+6. UPDATE /api/ims/update/{category_id}
  
     - request-body : Updated Category details as json
  
@@ -177,7 +135,7 @@
         }
     ```
 
-9. DELETE /api/ims/delete_category?category-id=101
+7. DELETE /api/ims/delete_category?category-id=101
 
     - query-param : category-id
     - query-param-required : true
@@ -190,7 +148,7 @@
     }
     ```
 
-10. DELETE /api/ims/delete_product?product-id=1
+8. DELETE /api/ims/delete_product?product-id=1
 
     - query-param : product-id
     - query-param-required : true
@@ -203,7 +161,7 @@
     }
     ```
 
-11. UPDATE /api/ims/sold?product-id=2 & quantity=5
+9. UPDATE /api/ims/sold?product-id=2 & quantity=5
 
     - query-param : product-id
     - query-param : quantity
@@ -218,7 +176,7 @@
 
     ```
 
-12. UPDATE /api/ims/re-stock?product-id=2 & quantity=10
+10. UPDATE /api/ims/re-stock?product-id=2 & quantity=10
 
     - query-param : product-id
     - query-param : quantity
