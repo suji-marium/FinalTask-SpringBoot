@@ -11,16 +11,15 @@
 
     - request-body: category details as JSON
     ```json
-        {
-            "category_id":101,
-            "name":"grocery",
-        }
+    {
+        "category_name":"Groceries"
+    }
     ```
     - response-status : 200
-    - response-body: 
+    - response-body: Response message as JSON
      ```json
     {
-        "message":"Category created successfully"
+        "message": "Category created successfully"
     }
     ```
 
@@ -28,25 +27,25 @@
 
     - request-body: product details as JSON
     ```json
-        {
-            "product_id":1,
-            "name":"rice",
-            "category_id":101,
-            "price":55.00,
-            "quantity":10
-        }
+    {
+        "product_name":"Rice",
+        "category_id":1,
+        "price":45,
+        "quantity":80
+    }
     ```
     - response-status : 200
-    - response-body: 
+    - response-body: Response message as JSON
      ```json
     {
         "message":"Product created successfully"
     }
     ```
 
-3. GET /api/ims/products
-    - query-param : category-id
-    - query-param : product-id
+3. GET /api/ims/getproduct?category_id=1
+    - query-param : category_id
+    - query-param-required : false
+    - query-param : product_id
     - query-param-required : false
     - response-status : 200
     - response : product details as JSON
@@ -54,57 +53,56 @@
     ```json
     [
         {
-            "id":1,
-            "name":"rice",
-            "category_id":101,
-            "price":55.00,
-            "quantity":10
+            "product_id": 1,
+            "product_name": "Rice",
+            "category": {
+                "category_id": 1,
+                "category_name": "Groceries"
+            },
+            "price": 45.0,
+            "quantity": 80
         },
         {
-            "id":2,
-            "name":"wheat",
-            "category_id":101,
-            "price":65.00,
-            "quantity":12
-        },
-        {
-            "id":3,
-            "name":"coffee",
-            "category_id":102,
-            "price":80,
-            "quantity":15
+            "product_id": 2,
+            "product_name": "Wheat",
+            "category": {
+                "category_id": 1,
+                "category_name": "Groceries"
+            },
+            "price": 55.0,
+            "quantity": 18
         }
     ]
     
     ```
 
-4. GET /api/ims/category?category-id=101
+4. GET /api/ims/getcategory?category_id=1
 
     - query-param : category-id
-    - query-param-required : true
+    - query-param-required : false
     - response-status : 200
     - response : category details as JSON
     
     ```json
 
     {
-        "id":101,
-        "name":"grocery",
+        "category_id": 1,
+        "category_name": "Groceries"
     }
 
     ```
-5. UPDATE /api/ims/update/{product_id}
+5. UPDATE api/ims/updateProduct?productId=1&quantity=30
  
-    - request-body : Updated Product details as json
- 
-    ```json
-        {
-            "name" : "Barley",
-            "category_id" : 101,
-            "price" : 105.00,
-            "quantity" : 5
-        }
-    ```
+    - query-param : productId
+    - query-param-required : true
+    - query-param : productName
+    - query-param-required : false
+    - query-param : categoryId
+    - query-param-required : false
+    - query-param : price
+    - query-param-required : false
+    - query-param : quantity
+    - query-param-required : false
  
     - response-status : 200
     - response-body:
@@ -115,27 +113,22 @@
         }
     ```
  
-6. UPDATE /api/ims/update/{category_id}
+6. UPDATE api/ims/updateCategory?categoryId=1&categoryName=Groceries
  
-    - request-body : Updated Category details as json
- 
-    ```json
-        {
-            "name" : "Beverages"
-        }
- 
-    ```
- 
+    - query-param : categoryId
+    - query-param-required : true
+    - query-param : categoryName
+    - query-param-required : true
     - response-status : 200
     - response-body:
  
      ```json
         {
-            "message":"Category updated successfully"
+            "message": "Category updated successfully"
         }
     ```
 
-7. DELETE /api/ims/delete_category?category-id=101
+7. DELETE /api/ims/delete_category?category-id=1
 
     - query-param : category-id
     - query-param-required : true
@@ -161,32 +154,41 @@
     }
     ```
 
-9. UPDATE /api/ims/sold?product-id=2 & quantity=5
+9. UPDATE /api/ims/sell
 
-    - query-param : product-id
-    - query-param : quantity
-    - query-param-required : true
+    - request
+    ```json
+    {
+        "product_id":6,
+        "userid":6,
+        "quantity":10
+    }
+    ```
     - response-status : 200
     - response : 
 
     ```json
     {
-        "message":"Successfully sold out the product with id: 2"
+        "message":"Successfully sold out the product with id: 6"
     }
 
     ```
 
-10. UPDATE /api/ims/re-stock?product-id=2 & quantity=10
-
-    - query-param : product-id
-    - query-param : quantity
-    - query-param-required : true
+10. UPDATE /api/ims/restock
+    - request
+    ```json
+    {
+        "product_id":6,
+        "userid":1,
+        "quantity":10
+    }
+    ```
     - response-status : 200
     - response : 
 
     ```json
     {
-        "message":"Successfully restocked the product with id: 2"
+        "message":"Successfully restocked the product with id: 6"
     }
     
     ```

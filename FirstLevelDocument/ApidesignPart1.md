@@ -8,7 +8,7 @@
 
 ## API Methods
 
-1. GET /api/employees/employee-name-start?starts-with-letter="M"
+1. GET /api/employees/employee-name-start?starts-with-letter="s"
 
     - query-param : starts-with-letter 
     - query-param-required : true
@@ -16,26 +16,27 @@
     - response : employee details as JSON
     ```json
     
-    [
-        {
-            "name"  : "Mathew John",
-            "id" : 1,
-            "stream" : "Sales",
-            "designation": "Manager",
-            "accountName" : "Smart Ops",
-            "managerId": 0
-        },
-
-        {
-           
-            "name"  : "Manu Mohan",
-            "id" : 2,
-            "stream" : "Sales",
-            "designation": "Associate",
-            "accountName" : "Smart Ops",
-            "managerId" : 1, 
-        }
-    ]
+    {
+        "message": "Successfully fetched",
+        "employeeDetails": [
+            {
+                "empName": "Sumi Saji",
+                "empId": 2,
+                "streamName": "Sales",
+                "designation": "Manager",
+                "accountName": "SmartOps",
+                "managerName": "Self (Manager)"
+            },
+            {
+                "empName": "Shanu Mohan",
+                "empId": 4,
+                "streamName": "Sales",
+                "designation": "Associate",
+                "accountName": "Walmart",
+                "managerName": "Manu Mathew"
+            }
+        ]
+    }
     
     ```
 
@@ -44,21 +45,39 @@
     - response-status : 200
     - response : streams details as JSON
     ```json
-    {
-        "streams":[
-            "Sales","G&A","Delivery"
+   {
+        "message": "Successfully fetched",
+        "streams": [
+            "Sales",
+            "Developer",
+            "Delivery",
+            "Computing",
+            "Q&A"
         ]
     }
     ```
 
-3. PUT /api/employees/update/employee-id=8&manager-id=5
-    - query-param : employee-id
-    - query-param : manager-id
+3. PUT /api/employees/update-to-manager?employeeId=1&streamId=2
+    - query-param : employeeId
+    - query-param : streamId
     - query-param-required : true
     - response-status : 200
     - response
     ```json
     {
-        "message":"Sam Daniel's manager has been changed from Mathew John to Akash Kumar"
+        "message": "Varun Nair's details have been successfully updated."
     }
+    ```
+
+4. PUT /api/employees/update-to-employee?employeeId=4&managerId=2
+    - query-param : employeeId
+    - query-param : managerId
+    - query-param-required : true
+    - response-status : 200
+    - response
+    ```json
+    {
+        "message": "Shanu Mohan's details have been successfully updated."
+    }
+    
     ```
